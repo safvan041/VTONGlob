@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jewellery Try‑On</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 2rem;}
+        .container {max-width: 600px; margin: auto;}
+        .field {margin-bottom: 1rem;}
+        label {display: block; margin-bottom: .5rem;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Try On Jewellery</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field">
+            <label for="face_image">Face Image</label>
+            <input type="file" name="face_image" id="face_image" accept="image/*" required>
+        </div>
+        <div class="field">
+            <label for="jewellery_image">Jewellery Image (PNG with transparent background)</label>
+            <input type="file" name="jewellery_image" id="jewellery_image" accept="image/png" required>
+        </div>
+        <div class="field">
+            <label for="jewellery_type">Jewellery Type</label>
+            <select name="jewellery_type" id="jewellery_type" required>
+                <option value="earring">Earring</option>
+                <option value="nose">Nose Ring</option>
+                <option value="necklace">Necklace</option>
+            </select>
+        </div>
+        <button type="submit">Try On</button>
+    </form>
+</div>
+</body>
+</html>
