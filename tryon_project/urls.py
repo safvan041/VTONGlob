@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("tryon/", include("tryon.urls")),
+    path("", include("tryon.urls")),
 ]
 
 # Serve media files during development

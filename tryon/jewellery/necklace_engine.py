@@ -72,7 +72,7 @@ def tryon_necklace(face_path: str, necklace_path: str, output_path: str) -> str:
     # Determine vertical offset based on distance nose‑to‑chin
     nose_tip = lm.landmark[4]
     nose_to_chin = abs(chin.y - nose_tip.y) * h
-    neck_y = cy + int(nose_to_chin * 0.20)  # 20% below chin
+    neck_y = cy + int(nose_to_chin * 0.05)  # 5% below chin (brought higher to stay in frame)
     neck_x = cx + int(w * 0.01)
 
     # Scale necklace width to jaw width (landmarks 234 & 454)
@@ -81,7 +81,7 @@ def tryon_necklace(face_path: str, necklace_path: str, output_path: str) -> str:
     jaw_width_px = math.hypot(
         (right_jaw.x - left_jaw.x) * w, (right_jaw.y - left_jaw.y) * h
     )
-    size_w = int(jaw_width_px * 1.5)
+    size_w = int(jaw_width_px * 1.2)
     aspect = necklace.shape[0] / necklace.shape[1]
     size_h = int(size_w * aspect)
 

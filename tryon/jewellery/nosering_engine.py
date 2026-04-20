@@ -64,9 +64,9 @@ def tryon_nosering(face_path: str, pin_path: str, output_path: str) -> str:
         )
         * w
     )
-    size = int(eye_dist * 0.25)
-    if size < 110:
-        size = 110
+    size = int(eye_dist * 0.15)
+    if size < 15:
+        size = 15
 
     # Rotation based on head tilt (using landmarks 454 and 234).
     dx = lm.landmark[454].x - lm.landmark[234].x

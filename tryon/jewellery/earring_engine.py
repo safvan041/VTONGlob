@@ -75,20 +75,20 @@ def tryon_earring(face_path: str, earring_path: str, output_path: str) -> str:
         # Left ear (camera left) – landmark 137
         l = lm.landmark[137]
         lx = int(l.x * w) - int(w * 0.025)
-        ly = int(l.y * h)
+        ly = int(l.y * h) + int(h * 0.015)
         ear_positions.append({"x": lx, "y": ly, "side": "left"})
         # Right ear – landmark 366
         r = lm.landmark[366]
         rx = int(r.x * w) + int(w * 0.025)
-        ry = int(r.y * h)
+        ry = int(r.y * h) + int(h * 0.015)
         ear_positions.append({"x": rx, "y": ry, "side": "right"})
 
     # Scale earring based on image height – factor can be tuned.
-    size_w = int(h * 0.12)
+    size_w = int(h * 0.07)
     aspect = earring.shape[0] / earring.shape[1]
     size_h = int(size_w * aspect)
-    if size_w < 45:
-        size_w = 50
+    if size_w < 15:
+        size_w = 15
         size_h = int(size_w * aspect)
 
     # Optional rotation to follow head tilt.
